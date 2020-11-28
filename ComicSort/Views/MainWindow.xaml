@@ -5,7 +5,12 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:core="clr-namespace:ComicSort.Core;assembly=ComicSort.Core"
         Title="{Binding Title}" Height="350" Width="525" >
-    <Grid>
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Library Management"/>
+            </MenuItem>
+        </Menu>
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
-    </Grid>
+    </DockPanel>
 </Window>
