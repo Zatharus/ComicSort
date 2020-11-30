@@ -8,7 +8,7 @@
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_Library Management"/>
+                <MenuItem Header="_Library Management" Command="{Binding LibraryManagementCommand}"/>
             </MenuItem>
         </Menu>
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />

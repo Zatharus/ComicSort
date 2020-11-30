@@ -1,6 +1,7 @@
 ﻿using ComicSort.Modules.ModuleName;
 using ComicSort.Services;
 using ComicSort.Services.Interfaces;
+using ComicSort.ViewModels;
 using ComicSort.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -21,6 +22,7 @@ namespace ComicSort
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
+            containerRegistry.RegisterDialog<LibraryManagementDialog, LibraryManagementDialogViewModel>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ComicSort.Views.LibraryManagementDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             Height="450" Width="375"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterOwner" />
+            <Setter Property="ResizeMode" Value="NoResize"/>
+            <Setter Property="ShowInTaskbar" Value="False"/>
+            <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        </Style>
+    </prism:Dialog.WindowStyle>
+    <Border Padding="10">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Grid.Row="1">
+                    <Button Margin="5" Padding="2"  Content="New"/>
+                    <Button Margin="5" Padding="2" Content="Delete"/>
+                </StackPanel>
+
+                <TextBlock Grid.Column="1" Grid.Row="0" Margin="5 5 0 5"  Text="Libraries"/>
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    
+                    <ListBox Margin="5" Height="325">
+                        <ListBoxItem>
+                                                       
+                        </ListBoxItem>
+                    </ListBox>
+
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Margin="5 5 5 5" Padding="2" Content="Cancel"/>
+                            <Button Margin="5 5 5 5" Padding="2" Content="OK"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Border>
+</UserControl>
