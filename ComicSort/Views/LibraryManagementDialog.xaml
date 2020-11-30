@@ -28,7 +28,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Column="0" Grid.Row="1">
-                    <Button Margin="5" Padding="2"  Content="New"/>
+                    <Button Margin="5" Padding="2"  Content="New" Command="{Binding NewButtonCommand}"/>
                     <Button Margin="5" Padding="2" Content="Delete"/>
                 </StackPanel>
 

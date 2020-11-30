@@ -9,9 +9,20 @@ namespace ComicSort.ViewModels
 {
     public class LibraryManagementDialogViewModel : BindableBase, IDialogAware
     {
-        public LibraryManagementDialogViewModel()
-        {
 
+        private IDialogService _dialogService;
+        public LibraryManagementDialogViewModel(IDialogService dialogService)
+        {
+            _dialogService = dialogService;
+        }
+
+        private DelegateCommand _newButtonCommand;
+        public DelegateCommand NewButtonCommand =>
+            _newButtonCommand ?? (_newButtonCommand = new DelegateCommand(ExecuteNewButtonCommand));
+
+        void ExecuteNewButtonCommand()
+        {
+            _dialogService.ShowDialog("NewLibraryDialog", null, null);
         }
 
         public string Title => "Library Management";
