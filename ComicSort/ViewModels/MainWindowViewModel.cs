@@ -20,6 +20,7 @@ namespace ComicSort.ViewModels
 
         void ExecuteLibraryManagementCommand()
         {
+            
             _dialogService.ShowDialog("LibraryManagementDialog", null, null);
         }
 
