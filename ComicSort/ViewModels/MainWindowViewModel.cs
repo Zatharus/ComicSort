@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using ComicSort.Core.IO;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 
@@ -27,6 +28,7 @@ namespace ComicSort.ViewModels
         public MainWindowViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
+            
         }
     }
 }
