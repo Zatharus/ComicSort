@@ -1,4 +1,5 @@
-﻿using ComicSort.Modules.ModuleName;
+﻿using ComicSort.Modules.MenuBar;
+using ComicSort.Modules.ModuleName;
 using ComicSort.Services;
 using ComicSort.Services.Interfaces;
 using ComicSort.ViewModels;
@@ -29,6 +30,7 @@ namespace ComicSort
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             moduleCatalog.AddModule<ModuleNameModule>();
+            moduleCatalog.AddModule<MenuBarModule>();
         }
     }
 }

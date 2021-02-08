@@ -6,11 +6,7 @@
         xmlns:core="clr-namespace:ComicSort.Core;assembly=ComicSort.Core"
         Title="{Binding Title}" Height="350" Width="525" >
     <DockPanel LastChildFill="True">
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_Library Management" Command="{Binding LibraryManagementCommand}"/>
-            </MenuItem>
-        </Menu>
+        <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static core:RegionNames.MenuRegion}"/>
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
     </DockPanel>
 </Window>
