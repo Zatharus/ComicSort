@@ -1,11 +1,8 @@
-﻿using ComicSort.Core.Mvvm;
-using ComicSort.ExtensionMethods;
+﻿using ComicSort.Core.IO;
+using ComicSort.Core.Mvvm;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ComicSort.ViewModels
 {
@@ -36,7 +33,7 @@ namespace ComicSort.ViewModels
 
         void ExecuteBrowseCommand()
         {
-            LibraryPath = BrowseFolder.OpenBrowseFolder();
+            LibraryPath = CommonDialogs.ShowFolderBrowserDialog();
         }
 
         public string Title => "Create New library";
