@@ -6,6 +6,8 @@
     <Menu>
         <MenuItem Header="_File">
             <MenuItem Header="_Library Management" Command="{Binding LibraryManagementCommand}"/>
+            <Separator/>
+            <MenuItem Header="E_xit" Command="{Binding ExitCommand}"/>
         </MenuItem>
     </Menu>
 </UserControl>

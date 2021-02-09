@@ -1,11 +1,7 @@
 ﻿using ComicSort.Core.Mvvm;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ComicSort.Modules.MenuBar.ViewModels
 {
@@ -25,7 +21,6 @@ namespace ComicSort.Modules.MenuBar.ViewModels
 
         void ExecuteLibraryManagementCommand()
         {
-
             _dialogService.ShowDialog("LibraryManagementDialog", null, null);
         }
     }
