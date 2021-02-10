@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Regions;
 using Prism.Services.Dialogs;
+using System.Windows;
 
 namespace ComicSort.Modules.MenuBar.ViewModels
 {
@@ -22,6 +23,15 @@ namespace ComicSort.Modules.MenuBar.ViewModels
         void ExecuteLibraryManagementCommand()
         {
             _dialogService.ShowDialog("LibraryManagementDialog", null, null);
+        }
+
+        private DelegateCommand _exitCommand;
+        public DelegateCommand ExitCommand =>
+            _exitCommand ?? (_exitCommand = new DelegateCommand(ExecuteExitCommand));
+
+        void ExecuteExitCommand()
+        {
+            Application.Current.Shutdown();
         }
     }
 }

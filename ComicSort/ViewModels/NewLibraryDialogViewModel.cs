@@ -1,5 +1,7 @@
 ﻿using ComicSort.Core.IO;
 using ComicSort.Core.Mvvm;
+using ComicSort.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using Prism.Commands;
 using Prism.Services.Dialogs;
 using System;
@@ -34,6 +36,18 @@ namespace ComicSort.ViewModels
         void ExecuteBrowseCommand()
         {
             LibraryPath = CommonDialogs.ShowFolderBrowserDialog();
+        }
+
+        private DelegateCommand _okCommand;
+        public DelegateCommand OKCommand =>
+            _okCommand ?? (_okCommand = new DelegateCommand(ExecuteOKCommand));
+
+        void ExecuteOKCommand()
+        {
+            var dbcontext = new ComicDatabaseDBContext();
+            dbcontext.CreateConnectionString(_libraryName, LibraryPath);
+            dbcontext.Database.EnsureCreated();
+            RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
         }
 
         public string Title => "Create New library";

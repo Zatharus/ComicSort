@@ -10,10 +10,26 @@ namespace ComicSort.EntityFramework
     public class ComicDatabaseDBContext : DbContext
     {
         public DbSet<Books> Books { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        private string _connectionString;
+
+        public string CreateConnectionString(string fileName, string filePath)
         {
-            
-            base.OnModelCreating(modelBuilder);
+            string fileNameWithExtension = null;
+            _connectionString = null;
+
+            fileNameWithExtension = fileName + ".DB";
+            _connectionString = Path.Combine(filePath, fileNameWithExtension);
+
+            return _connectionString;
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite($"Data Source= {_connectionString}");
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        
+
+
     }
 }

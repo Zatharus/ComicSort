@@ -11,6 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ComicSort.Core\ComicSort.Core.csproj" />
+    <ProjectReference Include="..\ComicSort.EntityFramework\ComicSort.EntityFramework.csproj" />
     <ProjectReference Include="..\Modules\ComicSort.Modules.MenuBar\ComicSort.Modules.MenuBar.csproj" />
     <ProjectReference Include="..\Modules\ComicSort.Modules.ModuleName\ComicSort.Modules.ModuleName.csproj" />
     <ProjectReference Include="..\Services\ComicSort.Services.Interfaces\ComicSort.Services.Interfaces.csproj" />
