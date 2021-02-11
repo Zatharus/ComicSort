@@ -35,10 +35,15 @@
                 <TextBlock Grid.Column="1" Grid.Row="0" Margin="5 5 0 5"  Text="Libraries"/>
                 <StackPanel Grid.Column="1" Grid.Row="1">
                     
-                    <ListBox Margin="5" Height="325">
-                        <ListBoxItem>
-                                                       
-                        </ListBoxItem>
+                    <ListBox Margin="5" Height="325" ItemsSource="{Binding Library}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding LibraryName}"/>
+                                    <TextBlock Text="{Binding LastAccessed}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
 
                     <Grid Grid.Row="2" Grid.Column="1">

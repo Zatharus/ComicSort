@@ -1,8 +1,11 @@
-﻿using Prism.Commands;
+﻿using ComicSort.Data.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 
 namespace ComicSort.ViewModels
@@ -11,9 +14,26 @@ namespace ComicSort.ViewModels
     {
 
         private IDialogService _dialogService;
+
+        public LibraryManagementDialogViewModel()
+        {
+            
+        }
+
+        private string _libraryFile;
+        public string LibraryFile
+        {
+            get { return _libraryFile; }
+            set { SetProperty(ref _libraryFile, value); }
+        }
+
+        public ObservableCollection<Libraries> Library { get; set; }
+
         public LibraryManagementDialogViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
+            
+
         }
 
         private DelegateCommand _newButtonCommand;
@@ -41,7 +61,9 @@ namespace ComicSort.ViewModels
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-            
+           
         }
+
+        
     }
 }

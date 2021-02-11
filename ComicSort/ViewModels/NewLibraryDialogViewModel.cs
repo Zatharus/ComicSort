@@ -1,10 +1,13 @@
 ﻿using ComicSort.Core.IO;
 using ComicSort.Core.Mvvm;
+using ComicSort.Data.Models;
 using ComicSort.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Prism.Commands;
 using Prism.Services.Dialogs;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace ComicSort.ViewModels
 {
@@ -14,6 +17,8 @@ namespace ComicSort.ViewModels
         {
 
         }
+
+        public List<Libraries> ListInfo { get; set; } = new List<Libraries>();
 
         private string _libraryName;
         public string LibraryName
@@ -45,9 +50,11 @@ namespace ComicSort.ViewModels
         void ExecuteOKCommand()
         {
             var dbcontext = new ComicDatabaseDBContext();
-            dbcontext.CreateConnectionString(_libraryName, LibraryPath);
+            var libraryFile = dbcontext.CreateConnectionString(_libraryName, LibraryPath);
             dbcontext.Database.EnsureCreated();
+            GetFileInfo(libraryFile);
             RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
+
         }
 
         public string Title => "Create New library";
@@ -66,6 +73,25 @@ namespace ComicSort.ViewModels
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
+            
+        }
+
+        void GetFileInfo(string libraryFile)
+        {
+            DateTime dateCreated;
+            DateTime lastAccessed;
+            string filePath = string.Empty;
+            string fileName = string.Empty;
+
+            FileInfo fi = new FileInfo(libraryFile);
+            dateCreated = fi.CreationTime;
+            lastAccessed = fi.LastAccessTime;
+            filePath = fi.DirectoryName;
+            fileName = fi.Name;
+
+            
+            ListInfo.Add(new Libraries() { Id = Guid.NewGuid(), LibraryName = fileName, LibraryPath = filePath, DateCreated = dateCreated, DateLastAccessed = lastAccessed});
+
             
         }
     }
