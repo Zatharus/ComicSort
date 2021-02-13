@@ -45,6 +45,33 @@ namespace ComicSort.ViewModels
             _dialogService.ShowDialog("NewLibraryDialog", null, null);
         }
 
+        private DelegateCommand _cancelCommand;
+        public DelegateCommand CancelCommand =>
+            _cancelCommand ?? (_cancelCommand = new DelegateCommand(ExecuteCancelCommand));
+
+        void ExecuteCancelCommand()
+        {
+            RequestClose?.Invoke(new DialogResult(ButtonResult.Cancel));
+        }
+
+        private DelegateCommand _deleteCommand;
+        public DelegateCommand DeleteCommand =>
+            _deleteCommand ?? (_deleteCommand = new DelegateCommand(ExecuteDeleteCommand));
+
+        void ExecuteDeleteCommand()
+        {
+
+        }
+
+        private DelegateCommand _okCommand;
+        public DelegateCommand OKCommand =>
+            _okCommand ?? (_okCommand = new DelegateCommand(ExecuteOKCommand));
+
+        void ExecuteOKCommand()
+        {
+
+        }
+
         public string Title => "Library Management";
 
         public event Action<IDialogResult> RequestClose;

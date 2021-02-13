@@ -57,6 +57,15 @@ namespace ComicSort.ViewModels
 
         }
 
+        private DelegateCommand _cancelCommand;
+        public DelegateCommand CancelCommand =>
+            _cancelCommand ?? (_cancelCommand = new DelegateCommand(ExecuteCancelCommand));
+
+        void ExecuteCancelCommand()
+        {
+            RequestClose?.Invoke(new DialogResult(ButtonResult.Cancel));
+        }
+
         public string Title => "Create New library";
 
         public event Action<IDialogResult> RequestClose;
