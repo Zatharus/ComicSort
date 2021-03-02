@@ -10,6 +10,9 @@ namespace ComicSort.Views
         public MainWindow()
         {
             InitializeComponent();
+            
+
         }
+
     }
 }

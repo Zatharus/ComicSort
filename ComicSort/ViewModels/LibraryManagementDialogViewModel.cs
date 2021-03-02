@@ -29,10 +29,16 @@ namespace ComicSort.ViewModels
 
         public ObservableCollection<Libraries> Library { get; set; }
 
+        public NewLibraryDialogViewModel ViewModel { get; set; }
+
         public LibraryManagementDialogViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
-            
+
+            if (ViewModel != null)
+                Library.Add(new Libraries() { LibraryPath = ViewModel.LibraryPath });
+            else return;
+
 
         }
 
@@ -88,7 +94,7 @@ namespace ComicSort.ViewModels
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-           
+            
         }
 
         

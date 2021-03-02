@@ -1,6 +1,8 @@
 ﻿using ComicSort.Core.Mvvm;
 using ComicSort.Services.Interfaces;
 using Prism.Regions;
+using System;
+using System.IO;
 
 namespace ComicSort.Modules.ModuleName.ViewModels
 {
@@ -21,7 +23,12 @@ namespace ComicSort.Modules.ModuleName.ViewModels
 
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
-            //do something
+            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ComicSort");
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
         }
     }
 }

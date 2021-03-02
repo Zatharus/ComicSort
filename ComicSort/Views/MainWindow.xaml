@@ -1,12 +1,13 @@
 ﻿<Window x:Class="ComicSort.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
-        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:core="clr-namespace:ComicSort.Core;assembly=ComicSort.Core"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525" >
     <DockPanel LastChildFill="True">
         <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static core:RegionNames.MenuRegion}"/>
+        <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static core:RegionNames.MainDisplayRegion}" />
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
     </DockPanel>
 </Window>

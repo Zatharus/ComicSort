@@ -18,7 +18,7 @@ namespace ComicSort.ViewModels
 
         }
 
-        public List<Libraries> ListInfo { get; set; } = new List<Libraries>();
+        public FileInfo FileInfo { get; set; }
 
         private string _libraryName;
         public string LibraryName
@@ -52,7 +52,8 @@ namespace ComicSort.ViewModels
             var dbcontext = new ComicDatabaseDBContext();
             var libraryFile = dbcontext.CreateConnectionString(_libraryName, LibraryPath);
             dbcontext.Database.EnsureCreated();
-            GetFileInfo(libraryFile);
+            FileInfo = FileUtility.GetFileInfo(libraryFile);
+
             RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
 
         }
@@ -85,23 +86,6 @@ namespace ComicSort.ViewModels
             
         }
 
-        void GetFileInfo(string libraryFile)
-        {
-            DateTime dateCreated;
-            DateTime lastAccessed;
-            string filePath = string.Empty;
-            string fileName = string.Empty;
-
-            FileInfo fi = new FileInfo(libraryFile);
-            dateCreated = fi.CreationTime;
-            lastAccessed = fi.LastAccessTime;
-            filePath = fi.DirectoryName;
-            fileName = fi.Name;
-
-            
-            ListInfo.Add(new Libraries() { Id = Guid.NewGuid(), LibraryName = fileName, LibraryPath = filePath, DateCreated = dateCreated, DateLastAccessed = lastAccessed});
-
-            
-        }
+        
     }
 }

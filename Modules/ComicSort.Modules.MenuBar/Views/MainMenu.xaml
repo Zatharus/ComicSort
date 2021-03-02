@@ -1,13 +1,11 @@
 ﻿<UserControl x:Class="ComicSort.Modules.MenuBar.Views.MainMenu"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:prism="http://prismlibrary.com/" 
+             xmlns:fileMenu="clr-namespace:ComicSort.Modules.MenuBar.Views"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Menu>
-        <MenuItem Header="_File">
-            <MenuItem Header="_Library Management" Command="{Binding LibraryManagementCommand}"/>
-            <Separator/>
-            <MenuItem Header="E_xit" Command="{Binding ExitCommand}"/>
-        </MenuItem>
+        <fileMenu:FileMenu/>
+        
     </Menu>
 </UserControl>

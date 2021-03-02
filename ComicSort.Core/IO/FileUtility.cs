@@ -49,5 +49,21 @@ namespace ComicSort.Core.IO
                 return false;
             }
         }
+
+        public static FileInfo GetFileInfo(string file)
+        {
+            DateTime dateCreated;
+            DateTime lastAccessed;
+            string filePath = string.Empty;
+            string fileName = string.Empty;
+
+            FileInfo fi = new FileInfo(file);
+            dateCreated = fi.CreationTime;
+            lastAccessed = fi.LastAccessTime;
+            filePath = fi.DirectoryName;
+            fileName = fi.Name;
+
+            return fi;
+        }
     }
 }
