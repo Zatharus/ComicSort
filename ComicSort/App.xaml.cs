@@ -27,6 +27,7 @@ namespace ComicSort
             
         }
 
+        
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
@@ -39,6 +40,12 @@ namespace ComicSort
             moduleCatalog.AddModule<ModuleNameModule>();
             moduleCatalog.AddModule<MainDisplayModule>();
             moduleCatalog.AddModule<MenuBarModule>();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+
+            base.OnExit(e); 
         }
     }
 }
